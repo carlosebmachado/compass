@@ -1,3 +1,3 @@
 # Compass
 
-![App screen](docs/appframe.png)
+![App screen](docs/appv2.png)
