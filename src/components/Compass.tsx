@@ -74,19 +74,18 @@ export default function Compass({ heading }: CompassProps) {
         const degTextSize = percentHeight(ctx, 5.56);
         const yDegTextAdjustPerc = percentHeight(ctx, 0.02);
         // degree text
-        const cardTextX = percentHeight(ctx, 30);
-        const cardTextSize = percentHeight(ctx, 12);
-        const yCardTextAdjustPerc = percentHeight(ctx, 0.06);
+        const cardTextX = percentHeight(ctx, 32);
+        const cardTextSize = percentHeight(ctx, 7);
+        const yCardTextAdjustPerc = percentHeight(ctx, 0.0);
 
         // draw segments
         for (let i = 0; i < numSegments; i++) {
-          if (i % 2 !== 0) continue;
 
           ctx.save();
           ctx.rotate(i * segmentAngle);
 
-          if (i === 0 || i === 90 || i === 180 || i === 270) {
-            var textWidth = i.toString().length * cardTextSize;
+          if (i % 45 === 0) {
+            var textWidth = CompassUtils.getCardinalDirection(i).length * cardTextSize;
             ctx.save();
             ctx.fillStyle = "dark gray";
             ctx.font = cardTextSize.toFixed(0) + "px sans-serif";
@@ -94,9 +93,14 @@ export default function Compass({ heading }: CompassProps) {
             ctx.textBaseline = "middle";
             ctx.rotate(MathUtils.degreesToRadians(-90));
             ctx.translate(cardTextX, 0);
-            ctx.rotate(-(i * segmentAngle + MathUtils.degreesToRadians(currentHeading.value)) + Math.PI / 2);
+            ctx.rotate(MathUtils.degreesToRadians(90));
             ctx.fillText(`${CompassUtils.getCardinalDirection(i)}`, 0, -(map360To180(i) * yCardTextAdjustPerc), textWidth);
             ctx.restore();
+          }
+
+          if (i % 2 !== 0) {
+            ctx.restore();
+            continue;
           }
 
           // rectangle
