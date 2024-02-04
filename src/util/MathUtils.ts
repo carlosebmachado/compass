@@ -11,4 +11,12 @@ export default class MathUtils {
   static radiansToDegrees(radians: number) {
     return radians * (180 / Math.PI);
   }
+
+  static degreesToRadians(degrees: number) {
+    return degrees * (Math.PI / 180);
+  }
+
+  static clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max);
+  }
 }

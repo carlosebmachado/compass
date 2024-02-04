@@ -18,6 +18,10 @@ export const colors = {
   dark500: "#1C1F22 ",
 };
 
+export const settings = {
+  updateInterval: 500,
+};
+
 const constants = {
   colors
 };
