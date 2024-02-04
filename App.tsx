@@ -118,15 +118,15 @@ export default function App() {
         <Compass heading={compassRotation} />
         <View style={styles.compassDataContainer}>
           <Text style={styles.compassDegree}>{`${heading.toFixed(1)}º`}</Text>
-          <Text style={styles.compassDegree}>{direction}</Text>
-          {/* <Text style={styles.compassData}>{`${latitude.toFixed(3)}, ${longitude.toFixed(3)}`}</Text>
-          <Text style={styles.compassData}>{`${altitude > 1 ? Math.round(altitude) : altitude.toFixed(1)}m`}</Text> */}
+          {/* <Text style={styles.compassDegree}>{direction}</Text> */}
+          <Text style={styles.compassData}>{`${latitude.toFixed(3)}, ${longitude.toFixed(3)}`}</Text>
+          <Text style={styles.compassData}>{`${altitude > 1 ? Math.round(altitude) : altitude.toFixed(1)}m`}</Text>
         </View>
       </View>
 
       <View style={styles.copyrightContainer}>
-        {/* <Text>Your Simple Compass</Text> */}
-        <Text style={styles.compassData}>{`${latitude.toFixed(3)}, ${longitude.toFixed(3)} | ${altitude > 1 ? Math.round(altitude) : altitude.toFixed(1)}m`}</Text>
+        <Text>Your Simple Compass</Text>
+        {/* <Text style={styles.compassData}>{`${latitude.toFixed(3)}, ${longitude.toFixed(3)} | ${altitude > 1 ? Math.round(altitude) : altitude.toFixed(1)}m`}</Text> */}
       </View>
     </View>
   );
