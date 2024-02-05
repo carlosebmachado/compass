@@ -75,7 +75,7 @@ export default function App() {
 
     if (!startedLocationWatch) {
       setStartedLocationWatch(true);
-      await watchPositionAsync({ accuracy: Accuracy.Balanced, timeInterval: settings.updateInterval }, (locationData) => {
+      await watchPositionAsync({ accuracy: Accuracy.Highest, timeInterval: settings.updateInterval }, (locationData) => {
         setRawLocationData(locationData);
         processLocationData(locationData);
       });
